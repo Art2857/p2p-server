@@ -22,11 +22,6 @@ export class AppGateway implements OnGatewayConnection, OnGatewayDisconnect {
     console.log(`Client disconnected: ${client.id}`);
   }
 
-  @SubscribeMessage('message')
-  handleMessage(client: Socket, message: string) {
-    console.log('message', message);
-  }
-
   @SubscribeMessage('startStream')
   startStream(client: Socket, streamerSdp: any) {
     this.streamer = { client: client, sdp: streamerSdp };
